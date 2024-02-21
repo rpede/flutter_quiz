@@ -23,9 +23,9 @@ fi
 
 # Start chromedriver
 if (type chromedriver &> /dev/null); then
-  ./chromedriver --port=4444 &
-else
   chromedriver --port=4444 &
+else
+  ./chromedriver --port=4444 &
 fi
 
 # Run tests
