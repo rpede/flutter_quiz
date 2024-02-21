@@ -11,10 +11,10 @@ fi
 
 # Download chromedriver
 pushd test_driver
-CHROMEDRIVER=chromedriver-linux64/chromedriver
+CHROMEDRIVER=chromedriver-linux64.zip
 if [ ! -f "$CHROMEDRIVER" ]; then
     wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.57/linux64/chromedriver-linux64.zip
-    unzip chromedriver-linux64.zip chromedriver-linux64/chromedriver
+    unzip -n chromedriver-linux64.zip chromedriver-linux64/chromedriver
 fi
 
 # Start chromedriver
