@@ -27,6 +27,7 @@ if (type chromedriver &> /dev/null); then
 else
   ./chromedriver --port=4444 &
 fi
+sleep 2s
 
 # Run tests
 flutter drive \
