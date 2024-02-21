@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# See https://docs.flutter.dev/cookbook/testing/integration/introduction#5b-web
+
 # If "debug" arg is given we run in brower, otherwise run headless
 if [ "$1" = "debug" ]; then
   DRIVER=chrome
