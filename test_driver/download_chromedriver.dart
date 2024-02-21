@@ -3,6 +3,7 @@ import 'dart:io';
 
 void main() async {
   final platform = chromePlatform();
+  print('Platform: $platform');
   final client = HttpClient();
   final version = await client.fetchJson<Map<String, dynamic>>(
       "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json");
@@ -11,8 +12,7 @@ void main() async {
   final downloadUrl =
       downloads.singleWhere((e) => e['platform'] == platform)['url'];
   final filename = Uri.parse(downloadUrl).pathSegments.last;
-  print(
-      'Downloading "chromedriver" for "$platform" from $downloadUrl to $filename');
+  print('Downloading "chromedriver" from $downloadUrl to $filename');
   await client.download(downloadUrl, File(filename));
   print('Unzipping $filename');
   final success = unzip_nf(filename);
@@ -47,7 +47,7 @@ String chromePlatform() {
         String m => throw "$os $m is not supported",
       },
     'macos' => switch (uname_m()) {
-        "x86_64" => "mac-64",
+        "x86_64" => "mac-x64",
         "arm64" => "mac-arm64",
         String m => throw "$os $m is not supported"
       },
