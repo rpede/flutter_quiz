@@ -44,6 +44,5 @@ app.*.map.json
 
 # Chromedriver
 chromedriver-*/
-chromedriver-*
-chromedriver
+chromedriver*
 LICENSE.chromedriver

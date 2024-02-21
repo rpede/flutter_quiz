@@ -16,7 +16,7 @@ void main() async {
   await client.download(downloadUrl, File(filename));
   print('Unzipping $filename');
   final success = unzip_nf(filename);
-  print("Success $success");
+  print("Downloading chromedriver ${success ? 'success' : 'failed'}");
 }
 
 void shellCheck() {
@@ -49,7 +49,12 @@ String chromePlatform() {
     'macos' => switch (uname_m()) {
         "x86_64" => "mac-x64",
         "arm64" => "mac-arm64",
-        String m => throw "$os $m is not supported"
+        String m => throw "$os $m is not supported",
+      },
+    'windows' => switch (uname_m()) {
+        'x86_64' => 'win64',
+        'x86' => 'win32',
+        String m => throw "$os $m is not supported",
       },
     _ => throw "$os not supported",
   };

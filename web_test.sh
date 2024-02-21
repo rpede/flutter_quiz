@@ -29,4 +29,4 @@ flutter drive \
   --target=integration_test/app_test.dart \
   -d $DRIVER
 
-pkill chromedriver
+kill `ps | grep chromedriver | awk '{print($1)}'`
