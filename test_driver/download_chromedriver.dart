@@ -16,7 +16,7 @@ void main() async {
   await client.download(downloadUrl, File(filename));
   print('Unzipping $filename');
   final success = unzip_nf(filename);
-  print("Downloading chromedriver ${success ? 'success' : 'failed'}");
+  print("Unzip ${success ? 'success' : 'failed'}");
 }
 
 void shellCheck() {
